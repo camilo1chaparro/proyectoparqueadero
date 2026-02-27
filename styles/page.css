@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, ans-serif;
+}
+
+body {
+    min-height: 100vh;
+}
+
+.barra {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.barra .menu {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    border: 2px solid #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+.menu {
+    width: 220px;
+    background: #352dbf;
+    color: #fff;
+    padding: 20px;
+}
+
+.menu .logo img {
+    width: 60px;
+    margin-bottom: 20px;
+}
+
+.menu .logo h1 {
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.nav {
+    display: block;
+    margin: 220px 0;
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.contenido {
+    flex: 1;
+}
+
+.topbar {
+    height: 60px;
+    background: #352dbf;
+    color: #fff;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 15px;
+    padding: 0 20px;
+}
+
+.admin-icon {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+.main {
+    padding: 40px;
+    text-align: center;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+.carro {
+    border: 1px solid #aaa;
+    width: 220px;
+    padding: 15px;
+}
+
+.carro img {
+    width: 90px;
+    margin: 10px 0;
+}
+
+.center h2 {
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+.Logo-parqueadero {
+    width: 70px;
+}
+
+.cajero {
+    border: 1px solid #aaa;
+    width: 220px;
+    padding: 15px;
+}
+
+.caja img {
+    width: 90px;
+    margin: 10px 0;
+}
