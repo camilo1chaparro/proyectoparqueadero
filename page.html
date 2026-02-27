@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>parking</title>
+    <title>Parking</title>
     <link rel="stylesheet" href="styles/page.css">
 </head>
 
@@ -12,48 +12,56 @@
 
     <div class="barra">
 
+        <!-- SIDEBAR -->
         <aside class="menu">
             <div class="logo">
-                <img src="img/estacionamiento.png" alt="Estacionamiento">
+                <img src="img/estacionamiento.png" alt="Parking">
                 <h1>Parking</h1>
             </div>
 
             <nav class="nav">
-                <a href="#">Tarifas</a>
-                <a href="#">Ingresos</a>
-                <a href="#">Salidas</a>
-                <a href="#">Caja</a>
+                <a href="#">💵 Tarifas</a>
+                <a href="#">🅿 Ingresos</a>
+                <a href="#">➡️ Salidas</a>
+                <a href="#">🏧 Caja</a>
             </nav>
         </aside>
 
-        <div class="contenido">
+        <!-- CONTENIDO -->
+        <section class="contenido">
 
+            <!-- TOPBAR -->
             <header class="topbar">
                 <span>ADMIN</span>
-                <span class="icons"><img src="img/admin.png" alt="Admin" class="admin-icon"></span>
+                <img src="img/admin.png" alt="Admin" class="admin-icon">
             </header>
 
+            <!-- MAIN -->
             <main class="main">
 
                 <div class="cards">
-                    <div class="carro">
+                    <div class="card">
                         <p>Carros estacionados</p>
-                        <img src="img/carros.png" alt="carros" class="cards">
+                        <img src="img/carros.png" alt="Carros">
                         <strong>0</strong>
                     </div>
 
                     <div class="card">
-                        <div class="caja">
-                            <p>Dinero en caja</p>
-                            <img src="img/cajero-automatico.png" alt="cajero automático" class="cajero">
-                            <strong>0</strong>
-                        </div>
+                        <p>Dinero en caja</p>
+                        <img src="img/cajero-automatico.png" alt="Caja">
+                        <strong>$ 0</strong>
+                    </div>
+                </div>
 
-                        <div class="center">
-                            <h2>Nombre<br>Parqueadero</h2>
-                            <div class="logo"><img src="img/estacionamiento.png" alt="Logo-parqueadero"></div>
-                        </div>
+                <div class="center">
+                    <h2>Nombre<br>Parqueadero</h2>
+                    <img src="img/estacionamiento.png" alt="Logo grande">
+                </div>
+
             </main>
+        </section>
+    </div>
+
 </body>
 
 </html>
