@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parking</title>
+    <link rel="stylesheet" href="styles/tarifas.css">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="menu">
+        <div class="logo">
+            <img src="img/estacionamiento.png" alt="Parking">
+            <h1>Parking</h1>
+        </div>
+
+        <header class="topbar">
+            <span>ADMIN</span>
+            <img src="img/admin.png" alt="Admin" class="admin-icon">
+        </header>
+
+        <nav class="nav">
+            <a href="tarifas.html">💵 Tarifas</a>
+            <a href="#">🅿 Ingresos</a>
+            <a href="#">➡️ Salidas</a>
+            <a href="#">🏧 Caja</a>
+        </nav>
+    </aside>
+
+    <!-- Formulario de tarifas -->
+
+    <form class="form-tarifas">
+        <input type="text" name="tarifa" placeholder="Clase vehiculo" required>
+        <input type="text" name="tarifa" placeholder="Precio por hora" required>
+        <input type="text" name="tarifa" placeholder="Precio por día" required>
+        <input type="text" name="tarifa" placeholder="Precio por lavado" required>
+
+        <div class="botones">
+            <button class="btn-agregar">Agregar tarifa</button>
+            <button class="btn-editar">Editar tarifa</button>
+        </div>
+    </form>
+
+
+    <table class="tabla-tarifas">
+        <thead>
+            <tr>
+                <th>Clase de vehículo</th>
+                <th>Precio por hora</th>
+                <th>Precio por día</th>
+                <th>Precio por lavado</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Auto</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Camioneta</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Precio día</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Precio lavado</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+</body>
+
+
+
+</html>

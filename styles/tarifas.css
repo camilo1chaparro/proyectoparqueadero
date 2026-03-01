@@ -1,0 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+}
+
+/* LAYOUT */
+.barra {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* SIDEBAR */
+.menu {
+    width: 220px;
+    background: #352dbf;
+    color: white;
+    padding: 20px;
+}
+
+.menu .logo {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.menu .logo img {
+    width: 60px;
+}
+
+.menu nav a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    margin: 20px 0;
+    font-size: 18px;
+}
+
+/* CONTENIDO */
+.contenido {
+    flex: 1;
+}
+
+/* TOPBAR */
+.topbar {
+    height: 60px;
+    background: #352dbf;
+    color: white;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 15px;
+    padding: 0 20px;
+}
+
+.topbar img {
+    width: 40px;
+}
+
+/* MAIN */
+.main {
+    padding: 40px;
+    text-align: center;
+}
+
+/* FORM */
+.form-tarifas {
+    display: grid;
+    grid-template-columns: repeat(2, 220px);
+    gap: 20px 40px;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.form-tarifas input {
+    background: #e0e0e0;
+    border: none;
+    padding: 12px;
+    text-align: center;
+    font-style: italic;
+}
+
+/* BOTONES */
+.botones {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.btn-agregar {
+    background: #352dbf;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 30px;
+}
+
+.btn-editar {
+    background: #f7b500;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 30px;
+}
+
+/* TABLA */
+.tabla-tarifas {
+    width: 700px;
+    margin: auto;
+    border-collapse: collapse;
+    background: #e0e0e0;
+}
+
+.tabla-tarifas th,
+.tabla-tarifas td {
+    border: 1px solid #777;
+    padding: 12px;
+}
+
+.tabla-tarifas th {
+    background: #d6d6d6;
+    font-style: italic;
+}
+
+.topbar {
+    height: 60px;
+    background: #352dbf;
+    color: #fff;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 15px;
+    padding: 0 20px;
+}
+
+.admin-icon {
+    width: 36px;
+    height: 36px;
+}
