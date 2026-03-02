@@ -57,8 +57,9 @@ body {
     padding: 0 20px;
 }
 
-.topbar img {
-    width: 40px;
+.admin-icon {
+    width: 36px;
+    height: 36px;
 }
 
 /* MAIN */
@@ -69,11 +70,17 @@ body {
 
 /* FORM */
 .form-tarifas {
-    display: grid;
-    grid-template-columns: repeat(2, 220px);
-    gap: 20px 40px;
+    display: flex;
+    grid-template-columns: column;
     justify-content: center;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
+}
+
+.form-tarifas .inputs-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 240px);
+    gap: 20px 50px;
+    margin-bottom: 35px;
 }
 
 .form-tarifas input {
@@ -82,7 +89,9 @@ body {
     padding: 12px;
     text-align: center;
     font-style: italic;
+    height: 45px;
 }
+
 
 /* BOTONES */
 .botones {
@@ -124,17 +133,6 @@ body {
 .tabla-tarifas th {
     background: #d6d6d6;
     font-style: italic;
-}
-
-.topbar {
-    height: 60px;
-    background: #352dbf;
-    color: #fff;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 15px;
-    padding: 0 20px;
 }
 
 .admin-icon {

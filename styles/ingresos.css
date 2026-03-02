@@ -1,0 +1,62 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+}
+
+/* LAYOUT */
+.barra {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* SIDEBAR */
+.menu {
+    width: 220px;
+    background: #352dbf;
+    color: white;
+    padding: 20px;
+}
+
+.menu .logo {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.menu .logo img {
+    width: 60px;
+}
+
+.menu nav a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    margin: 20px 0;
+    font-size: 18px;
+}
+
+/* CONTENIDO */
+.contenido {
+    flex: 1;
+}
+
+.topbar {
+    height: 60px;
+    background: #352dbf;
+    color: white;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 15px;
+    padding: 0 20px;
+}
+
+.admin-icon {
+    width: 36px;
+    height: 36px;
+}

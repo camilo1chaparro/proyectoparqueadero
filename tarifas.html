@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -10,81 +10,89 @@
 
 <body>
 
-    <!-- SIDEBAR -->
-    <aside class="menu">
-        <div class="logo">
-            <img src="img/estacionamiento.png" alt="Parking">
-            <h1>Parking</h1>
+    <div class="barra">
+
+        <!-- SIDEBAR -->
+        <aside class="menu">
+            <div class="logo">
+                <img src="img/estacionamiento.png" alt="Parking">
+                <h1>Parking</h1>
+            </div>
+
+            <nav class="nav">
+                <a href="tarifas.html">💵 Tarifas</a>
+                <a href="ingresos.html">🅿 Ingresos</a>
+                <a href="#">➡️ Salidas</a>
+                <a href="#">🏧 Caja</a>
+            </nav>
+        </aside>
+
+        <!-- CONTENIDO -->
+        <div class="contenido">
+
+            <!-- TOPBAR -->
+            <header class="topbar">
+                <span>ADMIN</span>
+                <img src="img/admin.png" alt="Admin" class="admin-icon">
+            </header>
+
+            <!-- MAIN -->
+            <main class="main">
+
+                <!-- FORMULARIO -->
+                <form class="form-tarifas">
+
+                    <div class="inputs-grid">
+                        <input type="text" placeholder="Clase vehiculo" required>
+                        <input type="text" placeholder="Precio por hora" required>
+                        <input type="text" placeholder="Precio por día" required>
+                        <input type="text" placeholder="Precio por lavado" required>
+                    </div>
+
+                    <div class="botones">
+                        <button class="btn-agregar">Agregar tarifa</button>
+                        <button class="btn-editar">Editar tarifa</button>
+                    </div>
+
+                </form>
+
+                <!-- TABLA -->
+                <table class="tabla-tarifas">
+                    <thead>
+                        <tr>
+                            <th>Clase de vehículo</th>
+                            <th>Precio por hora</th>
+                            <th>Precio por día</th>
+                            <th>Precio por lavado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Auto</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Camioneta</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Motocicleta</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </main>
+
         </div>
-
-        <header class="topbar">
-            <span>ADMIN</span>
-            <img src="img/admin.png" alt="Admin" class="admin-icon">
-        </header>
-
-        <nav class="nav">
-            <a href="tarifas.html">💵 Tarifas</a>
-            <a href="#">🅿 Ingresos</a>
-            <a href="#">➡️ Salidas</a>
-            <a href="#">🏧 Caja</a>
-        </nav>
-    </aside>
-
-    <!-- Formulario de tarifas -->
-
-    <form class="form-tarifas">
-        <input type="text" name="tarifa" placeholder="Clase vehiculo" required>
-        <input type="text" name="tarifa" placeholder="Precio por hora" required>
-        <input type="text" name="tarifa" placeholder="Precio por día" required>
-        <input type="text" name="tarifa" placeholder="Precio por lavado" required>
-
-        <div class="botones">
-            <button class="btn-agregar">Agregar tarifa</button>
-            <button class="btn-editar">Editar tarifa</button>
-        </div>
-    </form>
-
-
-    <table class="tabla-tarifas">
-        <thead>
-            <tr>
-                <th>Clase de vehículo</th>
-                <th>Precio por hora</th>
-                <th>Precio por día</th>
-                <th>Precio por lavado</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Auto</td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Camioneta</td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Precio día</td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Precio lavado</td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-        </tbody>
-    </table>
-
+    </div>
 
 </body>
-
-
 
 </html>
