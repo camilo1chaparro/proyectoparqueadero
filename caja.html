@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parking</title>
+    <link rel="stylesheet" href="styles/caja.css">
+</head>
+
+<body>
+
+    <div class="barra">
+
+        <!-- SIDEBAR -->
+        <aside class="menu">
+            <div class="logo">
+                <img src="img/estacionamiento.png" alt="Parking">
+                <h1>Parking</h1>
+            </div>
+
+            <nav class="nav">
+                <a href="tarifas.html">💵 Tarifas</a>
+                <a href="ingresos.html">🅿 Ingresos</a>
+                <a href="salida.html">➡️ Salidas</a>
+                <a href="#">🏧 Caja</a>
+            </nav>
+        </aside>
+
+        <div class="contenido">
+
+            <!-- TOPBAR -->
+            <header class="topbar">
+                <span>ADMIN</span>
+                <img src="img/admin.png" alt="Admin" class="admin-icon">
+            </header>
+
+            <main class="main">
+
+                <!-- Contenido de la sección de caja -->
+                <div class="caja">
+
+                    <h1>Cajero</h1>
+
+                    <p><b>Placa:</b> ABC123</p>
+                    <p><b>Hora entrada:</b> 10:30 AM</p>
+                    <p><b>Hora salida:</b> 12:00 PM</p>
+                    <p><b>Tiempo:</b> 1h 30m</p>
+                    <p><b>Tarifa:</b> $2000</p>
+
+                    <h2>Total a pagar: $4500</h2>
+
+                    <h3>Método de pago</h3>
+
+                    <label>
+                        <input type="radio" name="pago"> Efectivo
+                    </label>
+
+                    <label>
+                        <input type="radio" name="pago"> Tarjeta
+                    </label>
+
+                    <br><br>
+
+                    <button class="btn">Registrar pago</button>
+                    <button class="btn2">Imprimir recibo</button>
+
+                </div>
+
+            </main>
+        </div>
+</body>
+
+</html>

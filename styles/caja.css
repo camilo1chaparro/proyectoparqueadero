@@ -69,41 +69,76 @@ body {
     background: #e6e6e6;
 }
 
-.form-ingresos {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
+.caja {
     width: 400px;
+    margin: auto;
+    margin-top: 60px;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
     text-align: center;
 }
 
-.form-ingresos input {
-    padding: 18px;
-    font-size: 24px;
-    border: none;
-    background: #cfcfcf;
-    text-align: center;
+h1 {
+    color: #3a2bbf;
 }
 
-.form-ingresos select {
-    padding: 15px;
-    font-size: 20px;
-    border: none;
-    background: #cfcfcf;
-    text-align: center;
+h2 {
+    color: green;
 }
 
-.btn-agregar {
-    margin-top: 10px;
-    padding: 14px;
+button {
+    padding: 10px 20px;
     border: none;
-    background: #352dbf;
-    color: white;
-    border-radius: 30px;
-    font-size: 18px;
+    border-radius: 5px;
     cursor: pointer;
 }
 
-.btn-agregar:hover {
-    background: #2a2a2a;
+.btn {
+    background-color: #3a2bbf;
+    color: white;
+}
+
+.btn2 {
+    background-color: #00b894;
+    color: white;
+}
+
+[6:19 p. m.,
+5/3/2026]+57 318 1441722: body {
+    font-family: Arial;
+    background-color: #f4f6fb;
+}
+
+.contenedor {
+    width: 70%;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+h1 {
+    text-align: center;
+    color: #3a2bbf;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 12px;
+    text-align: center;
+}
+
+th {
+    background-color: #3a2bbf;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
 }
