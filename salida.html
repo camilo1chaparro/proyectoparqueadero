@@ -1,65 +1,143 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parking</title>
+    <title>Parking — Salidas</title>
     <link rel="stylesheet" href="styles/salida.css">
 </head>
 
 <body>
 
-    <div class="barra">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="logo-area">
+            <div class="logo-icon">🅿</div>
+            <span class="logo-text">Parking</span>
+        </div>
+        <nav>
+            <a href="page.html">Inicio</a>
+            <a href="tarifas.html">💵 Tarifas</a>
+            <a href="ingresos.html">🚗 Ingresos</a>
+            <a href="salida.html" class="active">➡️ Salidas</a>
+            <a href="caja.html">🏧 Caja</a>
+        </nav>
+    </aside>
 
-        <!-- SIDEBAR -->
-        <aside class="menu">
-            <div class="logo">
-                <img src="img/estacionamiento.png" alt="Parking">
-                <h1>Parking</h1>
+    <!-- MAIN -->
+    <div class="main-area">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+            <span class="topbar-title">Salidas</span>
+            <div class="topbar-user">
+                <span>Administrador</span>
+                <div class="avatar">AD</div>
+            </div>
+        </header>
+
+        <div class="content">
+
+            <!-- HEADER + STATS -->
+            <div class="section-header">
+                <div class="section-header-text">
+                    <h2>Registro de salidas</h2>
+                    <p>Historial de vehículos que han salido hoy.</p>
+                </div>
             </div>
 
-            <nav class="nav">
-                <a href="tarifas.html">💵 Tarifas</a>
-                <a href="ingresos.html">🅿 Ingresos</a>
-                <a href="salida.html">➡️ Salidas</a>
-                <a href="caja.html">🏧 Caja</a>
-            </nav>
-        </aside>
+            <!-- TARJETAS RESUMEN -->
+            <div class="stats-row">
+                <div class="stat-card">
+                    <div class="stat-label">Salidas hoy</div>
+                    <div class="stat-value" id="stat-total">2</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Tiempo promedio</div>
+                    <div class="stat-value" id="stat-tiempo">1h 45m</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Recaudado hoy</div>
+                    <div class="stat-value green" id="stat-recaudado">$ 10.500</div>
+                </div>
+            </div>
 
-        <div class="contenedor">
+            <!-- BUSCADOR -->
+            <div class="search-bar">
+                <div class="search-input-wrap">
+                    <span>🔍</span>
+                    <input type="text" id="buscador" placeholder="Buscar por placa...">
+                </div>
+            </div>
 
-            <h1>Registro de Salidas</h1>
-
-            <table>
-                <tr>
-                    <th>Placa</th>
-                    <th>Hora Entrada</th>
-                    <th>Hora Salida</th>
-                    <th>Tiempo</th>
-                    <th>Total</th>
-                </tr>
-
-                <tr>
-                    <td>ABC123</td>
-                    <td>10:30 AM</td>
-                    <td>12:00 PM</td>
-                    <td>1h 30m</td>
-                    <td>$4500</td>
-                </tr>
-
-                <tr>
-                    <td>XYZ789</td>
-                    <td>09:00 AM</td>
-                    <td>11:00 AM</td>
-                    <td>2h</td>
-                    <td>$6000</td>
-                </tr>
-
-            </table>
+            <!-- TABLA -->
+            <div class="card">
+                <table class="tabla-salidas">
+                    <thead>
+                        <tr>
+                            <th>Placa</th>
+                            <th>Tipo</th>
+                            <th>Hora entrada</th>
+                            <th>Hora salida</th>
+                            <th>Tiempo</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody-salidas">
+                        <tr>
+                            <td><span class="placa-badge">ABC-123</span></td>
+                            <td><span class="tipo-badge">Automóvil</span></td>
+                            <td>10:30 AM</td>
+                            <td>12:00 PM</td>
+                            <td>1h 30m</td>
+                            <td class="total-cell">$ 4.500</td>
+                        </tr>
+                        <tr>
+                            <td><span class="placa-badge">XYZ-789</span></td>
+                            <td><span class="tipo-badge">Camioneta</span></td>
+                            <td>09:00 AM</td>
+                            <td>11:00 AM</td>
+                            <td>2h 00m</td>
+                            <td class="total-cell">$ 6.000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
         </div>
     </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <script>
+        // Buscador por placa
+        document.getElementById('buscador').addEventListener('input', function () {
+            const query = this.value.toLowerCase();
+            const filas = document.querySelectorAll('#tbody-salidas tr');
+            let visibles = 0;
+
+            filas.forEach(fila => {
+                const placa = fila.querySelector('.placa-badge')?.textContent.toLowerCase() || '';
+                const mostrar = placa.includes(query);
+                fila.style.display = mostrar ? '' : 'none';
+                if (mostrar) visibles++;
+            });
+
+            // Estado vacío si no hay resultados
+            const existing = document.getElementById('empty-row');
+            if (visibles === 0 && !existing) {
+                const tr = document.createElement('tr');
+                tr.id = 'empty-row';
+                tr.innerHTML = '<td colspan="6" class="empty-state">No se encontró ningún vehículo con esa placa.</td>';
+                document.getElementById('tbody-salidas').appendChild(tr);
+            } else if (visibles > 0 && existing) {
+                existing.remove();
+            }
+        });
+    </script>
+
 </body>
 
 </html>

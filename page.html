@@ -4,63 +4,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parking</title>
+    <title>Parking — Dashboard</title>
     <link rel="stylesheet" href="styles/page.css">
 </head>
 
 <body>
 
-    <div class="barra">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="logo-area">
+            <div class="logo-icon">🅿</div>
+            <span class="logo-text">Parking</span>
+        </div>
+        <nav>
+            <a href="tarifas.html">💵 Tarifas</a>
+            <a href="ingresos.html">🚗 Ingresos</a>
+            <a href="salida.html">➡️ Salidas</a>
+            <a href="caja.html">🏧 Caja</a>
+        </nav>
+    </aside>
 
-        <!-- SIDEBAR -->
-        <aside class="menu">
-            <div class="logo">
-                <img src="img/estacionamiento.png" alt="Parking">
-                <h1>Parking</h1>
+    <!-- MAIN -->
+    <div class="main-area">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+            <span class="topbar-title">Dashboard</span>
+            <div class="topbar-user">
+                <span>Administrador</span>
+                <div class="avatar">AD</div>
+            </div>
+        </header>
+
+        <div class="content">
+
+            <!-- BIENVENIDA -->
+            <div class="welcome">
+                <h2>Bienvenido 👋</h2>
+                <p id="fecha-hoy">Hoy es —</p>
             </div>
 
-            <nav class="nav">
-                <a href="tarifas.html">💵 Tarifas</a>
-                <a href="ingresos.html">🅿 Ingresos</a>
-                <a href="salida.html">➡️ Salidas</a>
-                <a href="caja.html">🏧 Caja</a>
-            </nav>
-        </aside>
-
-        <!-- CONTENIDO -->
-        <section class="contenido">
-
-            <!-- TOPBAR -->
-            <header class="topbar">
-                <span>ADMIN</span>
-                <img src="img/admin.png" alt="Admin" class="admin-icon">
-            </header>
-
-            <!-- MAIN -->
-            <main class="main">
-
-                <div class="cards">
-                    <div class="card">
-                        <p>Carros estacionados</p>
-                        <img src="img/carros.png" alt="Carros">
-                        <strong>0</strong>
-                    </div>
-
-                    <div class="card">
-                        <p>Dinero en caja</p>
-                        <img src="img/cajero-automatico.png" alt="Caja">
-                        <strong>$ 0</strong>
-                    </div>
+            <!-- TARJETAS DE MÉTRICAS -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">🚗</div>
+                    <div class="stat-label">Vehículos adentro</div>
+                    <div class="stat-value" id="stat-adentro">0</div>
+                    <div class="stat-sub">en este momento</div>
                 </div>
-
-                <div class="center">
-                    <h2>Nombre<br>Parqueadero</h2>
-                    <img src="img/estacionamiento.png" alt="Logo grande">
+                <div class="stat-card">
+                    <div class="stat-icon">➡️</div>
+                    <div class="stat-label">Salidas hoy</div>
+                    <div class="stat-value" id="stat-salidas">2</div>
+                    <div class="stat-sub">vehículos han salido</div>
                 </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📋</div>
+                    <div class="stat-label">Ingresos hoy</div>
+                    <div class="stat-value" id="stat-ingresos">2</div>
+                    <div class="stat-sub">registros de entrada</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">💵</div>
+                    <div class="stat-label">Recaudado hoy</div>
+                    <div class="stat-value green" id="stat-caja">$ 10.500</div>
+                    <div class="stat-sub">en caja</div>
+                </div>
+            </div>
 
-            </main>
-        </section>
+            <!-- ACCESOS RÁPIDOS -->
+            <p class="accesos-titulo">Accesos rápidos</p>
+            <div class="accesos-grid">
+                <a href="ingresos.html" class="acceso-card">
+                    <span class="acceso-icon">🚗</span>
+                    <span class="acceso-label">Registrar ingreso</span>
+                </a>
+                <a href="salida.html" class="acceso-card">
+                    <span class="acceso-icon">➡️</span>
+                    <span class="acceso-label">Ver salidas</span>
+                </a>
+                <a href="caja.html" class="acceso-card">
+                    <span class="acceso-icon">🏧</span>
+                    <span class="acceso-label">Ir a caja</span>
+                </a>
+                <a href="tarifas.html" class="acceso-card">
+                    <span class="acceso-icon">💵</span>
+                    <span class="acceso-label">Gestionar tarifas</span>
+                </a>
+            </div>
+
+            <!-- TABLA VEHÍCULOS RECIENTES -->
+            <div class="card">
+                <div class="card-header">
+                    Vehículos recientes
+                    <a href="salida.html">Ver todos →</a>
+                </div>
+                <table class="tabla-recientes">
+                    <thead>
+                        <tr>
+                            <th>Placa</th>
+                            <th>Tipo</th>
+                            <th>Hora entrada</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="placa-badge">ABC-123</span></td>
+                            <td>Automóvil</td>
+                            <td>10:30 AM</td>
+                            <td><span class="estado-badge salida">Salió 12:00 PM</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="placa-badge">XYZ-789</span></td>
+                            <td>Camioneta</td>
+                            <td>09:00 AM</td>
+                            <td><span class="estado-badge salida">Salió 11:00 AM</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
     </div>
+
+    <script>
+        // Fecha actual en español
+        const fecha = new Date();
+        const opciones = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        const fechaStr = fecha.toLocaleDateString('es-CO', opciones);
+        document.getElementById('fecha-hoy').textContent =
+            fechaStr.charAt(0).toUpperCase() + fechaStr.slice(1);
+    </script>
 
 </body>
 

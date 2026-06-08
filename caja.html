@@ -1,74 +1,148 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parking</title>
+    <title>Parking — Caja</title>
     <link rel="stylesheet" href="styles/caja.css">
 </head>
 
 <body>
 
-    <div class="barra">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="logo-area">
+            <div class="logo-icon">🅿</div>
+            <span class="logo-text">Parking</span>
+        </div>
+        <nav>
+            <a href="page.html">Inicio</a>
+            <a href="tarifas.html">💵 Tarifas</a>
+            <a href="ingresos.html">🚗 Ingresos</a>
+            <a href="salida.html">➡️ Salidas</a>
+            <a href="caja.html" class="active">🏧 Caja</a>
+        </nav>
+    </aside>
 
-        <!-- SIDEBAR -->
-        <aside class="menu">
-            <div class="logo">
-                <img src="img/estacionamiento.png" alt="Parking">
-                <h1>Parking</h1>
+    <!-- MAIN -->
+    <div class="main-area">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+            <span class="topbar-title">Caja</span>
+            <div class="topbar-user">
+                <span>Administrador</span>
+                <div class="avatar">AD</div>
+            </div>
+        </header>
+
+        <div class="content">
+
+            <div class="section-header">
+                <h2>Cobro de servicio</h2>
+                <p>Revisa el detalle y registra el pago del vehículo.</p>
             </div>
 
-            <nav class="nav">
-                <a href="tarifas.html">💵 Tarifas</a>
-                <a href="ingresos.html">🅿 Ingresos</a>
-                <a href="salida.html">➡️ Salidas</a>
-                <a href="#">🏧 Caja</a>
-            </nav>
-        </aside>
+            <div class="caja-layout">
 
-        <div class="contenido">
+                <!-- Detalle del vehículo -->
+                <div class="card">
+                    <p class="card-title">Detalle del vehículo</p>
 
-            <!-- TOPBAR -->
-            <header class="topbar">
-                <span>ADMIN</span>
-                <img src="img/admin.png" alt="Admin" class="admin-icon">
-            </header>
+                    <div class="detalle-grid">
+                        <div class="detalle-item">
+                            <div class="detalle-label">Placa</div>
+                            <div class="detalle-value placa" id="det-placa">ABC-123</div>
+                        </div>
+                        <div class="detalle-item">
+                            <div class="detalle-label">Tipo</div>
+                            <div class="detalle-value" id="det-tipo">Automóvil</div>
+                        </div>
+                        <div class="detalle-item">
+                            <div class="detalle-label">Hora de entrada</div>
+                            <div class="detalle-value" id="det-entrada">10:30 AM</div>
+                        </div>
+                        <div class="detalle-item">
+                            <div class="detalle-label">Hora de salida</div>
+                            <div class="detalle-value" id="det-salida">12:00 PM</div>
+                        </div>
+                        <div class="detalle-item">
+                            <div class="detalle-label">Tiempo total</div>
+                            <div class="detalle-value" id="det-tiempo">1h 30m</div>
+                        </div>
+                        <div class="detalle-item">
+                            <div class="detalle-label">Tarifa por hora</div>
+                            <div class="detalle-value" id="det-tarifa">$ 2.000</div>
+                        </div>
+                    </div>
 
-            <main class="main">
-
-                <!-- Contenido de la sección de caja -->
-                <div class="caja">
-
-                    <h1>Cajero</h1>
-
-                    <p><b>Placa:</b> ABC123</p>
-                    <p><b>Hora entrada:</b> 10:30 AM</p>
-                    <p><b>Hora salida:</b> 12:00 PM</p>
-                    <p><b>Tiempo:</b> 1h 30m</p>
-                    <p><b>Tarifa:</b> $2000</p>
-
-                    <h2>Total a pagar: $4500</h2>
-
-                    <h3>Método de pago</h3>
-
-                    <label>
-                        <input type="radio" name="pago"> Efectivo
-                    </label>
-
-                    <label>
-                        <input type="radio" name="pago"> Tarjeta
-                    </label>
-
-                    <br><br>
-
-                    <button class="btn">Registrar pago</button>
-                    <button class="btn2">Imprimir recibo</button>
-
+                    <div class="total-row">
+                        <span class="total-label">Total a pagar</span>
+                        <span class="total-value" id="det-total">$ 4.500</span>
+                    </div>
                 </div>
 
-            </main>
+                <!-- Panel de pago -->
+                <div class="card">
+                    <p class="card-title">Método de pago</p>
+
+                    <div class="metodos">
+                        <label class="metodo-opcion">
+                            <input type="radio" name="pago" value="efectivo" checked>
+                            <span>💵 Efectivo</span>
+                        </label>
+                        <label class="metodo-opcion">
+                            <input type="radio" name="pago" value="tarjeta">
+                            <span>💳 Tarjeta</span>
+                        </label>
+                        <label class="metodo-opcion">
+                            <input type="radio" name="pago" value="transferencia">
+                            <span>📲 Transferencia</span>
+                        </label>
+                        <label class="metodo-opcion">
+                            <input type="radio" name="pago" value="nequi">
+                            <span>🟣 Nequi</span>
+                        </label>
+                    </div>
+
+                    <hr class="divider">
+
+                    <button class="btn btn-pagar" id="btn-pagar">
+                        ✅ Registrar pago
+                    </button>
+                    <button class="btn btn-imprimir" id="btn-imprimir">
+                        🖨️ Imprimir recibo
+                    </button>
+                </div>
+
+            </div>
         </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <script>
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            toast.textContent = msg;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 3000);
+        }
+
+        document.getElementById('btn-pagar').addEventListener('click', () => {
+            const metodo = document.querySelector('input[name="pago"]:checked');
+            if (!metodo) return;
+            const labels = { efectivo: 'Efectivo', tarjeta: 'Tarjeta', transferencia: 'Transferencia', nequi: 'Nequi' };
+            showToast(`Pago registrado en ${labels[metodo.value]} — ${document.getElementById('det-total').textContent}`);
+        });
+
+        document.getElementById('btn-imprimir').addEventListener('click', () => {
+            window.print();
+        });
+    </script>
+
 </body>
 
 </html>

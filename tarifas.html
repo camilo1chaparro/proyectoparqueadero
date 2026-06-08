@@ -4,60 +4,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parking</title>
+    <title>Parking — Tarifas</title>
     <link rel="stylesheet" href="styles/tarifas.css">
 </head>
 
 <body>
 
-    <div class="barra">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="logo-area">
+            <div class="logo-icon">🅿</div>
+            <span class="logo-text">Parking</span>
+        </div>
+        <nav>
+            <a href="page.html">Inicio</a>
+            <a href="tarifas.html" class="active">💵 Tarifas</a>
+            <a href="ingresos.html">🚗 Ingresos</a>
+            <a href="salida.html">➡️ Salidas</a>
+            <a href="caja.html">🏧 Caja</a>
+        </nav>
+    </aside>
 
-        <!-- SIDEBAR -->
-        <aside class="menu">
-            <div class="logo">
-                <img src="img/estacionamiento.png" alt="Parking">
-                <h1>Parking</h1>
+    <!-- MAIN -->
+    <div class="main-area">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+            <span class="topbar-title">Gestión de tarifas</span>
+            <div class="topbar-user">
+                <span>Administrador</span>
+                <div class="avatar">AD</div>
+            </div>
+        </header>
+
+        <div class="content">
+
+            <div class="section-header">
+                <h2>Tarifas</h2>
+                <p>Agrega o edita las tarifas por tipo de vehículo.</p>
             </div>
 
-            <nav class="nav">
-                <a href="tarifas.html">💵 Tarifas</a>
-                <a href="ingresos.html">🅿 Ingresos</a>
-                <a href="salida.html">➡️ Salidas</a>
-                <a href="caja.html">🏧 Caja</a>
-            </nav>
-        </aside>
-
-        <!-- CONTENIDO -->
-        <div class="contenido">
-
-            <!-- TOPBAR -->
-            <header class="topbar">
-                <span>ADMIN</span>
-                <img src="img/admin.png" alt="Admin" class="admin-icon">
-            </header>
-
-            <!-- MAIN -->
-            <main class="main">
-
-                <!-- FORMULARIO -->
-                <form class="form-tarifas">
-
+            <!-- FORMULARIO -->
+            <div class="card">
+                <form id="form-tarifas" novalidate>
                     <div class="inputs-grid">
-                        <input type="text" placeholder="Clase vehiculo" required>
-                        <input type="text" placeholder="Precio por hora" required>
-                        <input type="text" placeholder="Precio por día" required>
-                        <input type="text" placeholder="Precio por lavado" required>
+
+                        <div class="field">
+                            <label for="clase">Clase de vehículo</label>
+                            <select id="clase" name="clase" required>
+                                <option value="" disabled selected>Selecciona el tipo</option>
+                                <option value="Automóvil">Automóvil</option>
+                                <option value="Camioneta">Camioneta</option>
+                                <option value="Motocicleta">Motocicleta</option>
+                                <option value="Camión">Camión</option>
+                                <option value="Bicicleta">Bicicleta</option>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label for="precio-hora">Precio por hora</label>
+                            <input type="number" id="precio-hora" name="precio_hora" placeholder="Ej. 3000" min="0"
+                                required>
+                        </div>
+
+                        <div class="field">
+                            <label for="precio-dia">Precio por día</label>
+                            <input type="number" id="precio-dia" name="precio_dia" placeholder="Ej. 20000" min="0"
+                                required>
+                        </div>
+
+                        <div class="field">
+                            <label for="precio-lavado">Precio por lavado</label>
+                            <input type="number" id="precio-lavado" name="precio_lavado" placeholder="Ej. 15000" min="0"
+                                required>
+                        </div>
+
                     </div>
 
                     <div class="botones">
-                        <button class="btn-agregar">Agregar tarifa</button>
-                        <button class="btn-editar">Editar tarifa</button>
+                        <button type="submit" class="btn btn-agregar">✅ Agregar tarifa</button>
+                        <button type="button" class="btn btn-editar" id="btn-editar" disabled>✏️ Guardar
+                            cambios</button>
                     </div>
-
                 </form>
+            </div>
 
-                <!-- TABLA -->
-                <table class="tabla-tarifas">
+            <!-- TABLA -->
+            <div class="card">
+                <table class="tabla-tarifas" id="tabla-tarifas">
                     <thead>
                         <tr>
                             <th>Clase de vehículo</th>
@@ -66,32 +100,158 @@
                             <th>Precio por lavado</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="tbody-tarifas">
                         <tr>
-                            <td>Auto</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td><span class="badge-tipo">Automóvil</span></td>
+                            <td class="empty">—</td>
+                            <td class="empty">—</td>
+                            <td class="empty">—</td>
                         </tr>
                         <tr>
-                            <td>Camioneta</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td><span class="badge-tipo">Camioneta</span></td>
+                            <td class="empty">—</td>
+                            <td class="empty">—</td>
+                            <td class="empty">—</td>
                         </tr>
                         <tr>
-                            <td>Motocicleta</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td><span class="badge-tipo">Motocicleta</span></td>
+                            <td class="empty">—</td>
+                            <td class="empty">—</td>
+                            <td class="empty">—</td>
                         </tr>
                     </tbody>
                 </table>
-
-            </main>
+            </div>
 
         </div>
     </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <script>
+        const form = document.getElementById('form-tarifas');
+        const tbody = document.getElementById('tbody-tarifas');
+        const btnEditar = document.getElementById('btn-editar');
+        const toast = document.getElementById('toast');
+
+        let selectedRow = null;
+
+        // Formato de moneda colombiana
+        function formatCOP(val) {
+            if (!val && val !== 0) return '—';
+            return '$ ' + Number(val).toLocaleString('es-CO');
+        }
+
+        function showToast(msg) {
+            toast.textContent = msg;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 3000);
+        }
+
+        // Seleccionar fila para editar
+        tbody.addEventListener('click', (e) => {
+            const row = e.target.closest('tr');
+            if (!row) return;
+
+            // Deseleccionar si ya estaba seleccionada
+            if (selectedRow === row) {
+                row.classList.remove('selected');
+                selectedRow = null;
+                btnEditar.disabled = true;
+                form.reset();
+                return;
+            }
+
+            if (selectedRow) selectedRow.classList.remove('selected');
+            selectedRow = row;
+            row.classList.add('selected');
+            btnEditar.disabled = false;
+
+            // Cargar datos en el formulario
+            const cells = row.querySelectorAll('td');
+            const clase = cells[0].querySelector('.badge-tipo')?.textContent || '';
+            document.getElementById('clase').value = clase;
+            document.getElementById('precio-hora').value = cells[1].dataset.raw || '';
+            document.getElementById('precio-dia').value = cells[2].dataset.raw || '';
+            document.getElementById('precio-lavado').value = cells[3].dataset.raw || '';
+        });
+
+        // Agregar tarifa
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const clase = document.getElementById('clase').value;
+            const hora = document.getElementById('precio-hora').value;
+            const dia = document.getElementById('precio-dia').value;
+            const lavado = document.getElementById('precio-lavado').value;
+
+            if (!clase || !hora || !dia || !lavado) return;
+
+            // Buscar si ya existe esa clase en la tabla
+            const rows = tbody.querySelectorAll('tr');
+            let existing = null;
+            rows.forEach(r => {
+                if (r.querySelector('.badge-tipo')?.textContent === clase) existing = r;
+            });
+
+            if (existing) {
+                updateRow(existing, hora, dia, lavado);
+                showToast(`Tarifa de ${clase} actualizada`);
+            } else {
+                const tr = document.createElement('tr');
+                tr.innerHTML = rowHTML(clase, hora, dia, lavado);
+                tbody.appendChild(tr);
+                showToast(`Tarifa de ${clase} agregada`);
+            }
+
+            form.reset();
+            if (selectedRow) selectedRow.classList.remove('selected');
+            selectedRow = null;
+            btnEditar.disabled = true;
+        });
+
+        // Guardar cambios al editar
+        btnEditar.addEventListener('click', () => {
+            if (!selectedRow) return;
+            const clase = document.getElementById('clase').value;
+            const hora = document.getElementById('precio-hora').value;
+            const dia = document.getElementById('precio-dia').value;
+            const lavado = document.getElementById('precio-lavado').value;
+
+            if (!clase || !hora || !dia || !lavado) return;
+
+            updateRow(selectedRow, hora, dia, lavado);
+            selectedRow.querySelector('.badge-tipo').textContent = clase;
+            showToast(`Tarifa de ${clase} actualizada`);
+
+            form.reset();
+            selectedRow.classList.remove('selected');
+            selectedRow = null;
+            btnEditar.disabled = true;
+        });
+
+        function rowHTML(clase, hora, dia, lavado) {
+            return `
+                <td><span class="badge-tipo">${clase}</span></td>
+                <td data-raw="${hora}">${formatCOP(hora)}</td>
+                <td data-raw="${dia}">${formatCOP(dia)}</td>
+                <td data-raw="${lavado}">${formatCOP(lavado)}</td>
+            `;
+        }
+
+        function updateRow(row, hora, dia, lavado) {
+            const cells = row.querySelectorAll('td');
+            cells[1].textContent = formatCOP(hora);
+            cells[1].dataset.raw = hora;
+            cells[1].classList.remove('empty');
+            cells[2].textContent = formatCOP(dia);
+            cells[2].dataset.raw = dia;
+            cells[2].classList.remove('empty');
+            cells[3].textContent = formatCOP(lavado);
+            cells[3].dataset.raw = lavado;
+            cells[3].classList.remove('empty');
+        }
+    </script>
 
 </body>
 

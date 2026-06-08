@@ -1,60 +1,145 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parking</title>
+    <title>Parking — Ingresos</title>
     <link rel="stylesheet" href="styles/ingresos.css">
 </head>
 
 <body>
 
-    <div class="barra">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="logo-area">
+            <div class="logo-icon">🅿</div>
+            <span class="logo-text">Parking</span>
+        </div>
+        <nav>
+            <a href="page.html">Inicio</a>
+            <a href="tarifas.html">💵 Tarifas</a>
+            <a href="ingresos.html" class="active">🚗 Ingresos</a>
+            <a href="salida.html">➡️ Salidas</a>
+            <a href="#">🏧 Caja</a>
+        </nav>
+    </aside>
 
-        <!-- SIDEBAR -->
-        <aside class="menu">
-            <div class="logo">
-                <img src="img/estacionamiento.png" alt="Parking">
-                <h1>Parking</h1>
+    <!-- MAIN -->
+    <div class="main-area">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+            <span class="topbar-title">Registro de ingresos</span>
+            <div class="topbar-user">
+                <span>Administrador</span>
+                <div class="avatar">AD</div>
+            </div>
+        </header>
+
+        <div class="content">
+
+            <div class="section-header">
+                <h2>Nuevo ingreso</h2>
+                <p>Registra la entrada de un vehículo al parqueadero.</p>
             </div>
 
-            <nav class="nav">
-                <a href="tarifas.html">💵 Tarifas</a>
-                <a href="ingresos.html">🅿 Ingresos</a>
-                <a href="salida.html">➡️ Salidas</a>
-                <a href="#">🏧 Caja</a>
-            </nav>
-        </aside>
+            <div class="card">
 
-        <div class="contenido">
+                <!-- Hora de ingreso en tiempo real -->
+                <div class="timestamp-row">
+                    🕐 Hora de ingreso: <strong id="timestamp">—</strong>
+                </div>
 
-            <!-- TOPBAR -->
-            <header class="topbar">
-                <span>ADMIN</span>
-                <img src="img/admin.png" alt="Admin" class="admin-icon">
-            </header>
+                <form id="form-ingresos" novalidate>
 
-            <main class="main">
+                    <div class="field">
+                        <label for="placa">Placa del vehículo</label>
+                        <input type="text" id="placa" name="placa" placeholder="Ej. ABC-123" maxlength="8"
+                            autocomplete="off" required>
+                        <!-- Vista previa de la placa -->
+                        <div class="placa-preview" id="placa-preview">
+                            🚗 <span class="placa-badge" id="placa-badge"></span>
+                        </div>
+                    </div>
 
-                <form class="form-ingresos">
-                    <input type="text" placeholder="Placa del vehículo" required>
+                    <div class="field">
+                        <label for="tipo">Tipo de vehículo</label>
+                        <select id="tipo" name="tipo" required>
+                            <option value="" disabled selected>Selecciona el tipo</option>
+                            <option value="automovil">Automóvil</option>
+                            <option value="camioneta">Camioneta</option>
+                            <option value="moto">Motocicleta</option>
+                            <option value="camion">Camión</option>
+                            <option value="bicicleta">Bicicleta</option>
+                        </select>
+                    </div>
 
-                    <select required>
-                        <option value="" disabled selected>Clase de vehículo</option>
-                        <option value="automovil">Auto</option>
-                        <option value="moto">Camioneta</option>
-                        <option value="camion">Motocicleta</option>
-                    </select>
+                    <hr class="divider">
 
-                    <button class="btn-agregar">Registrar ingreso</button>
+                    <button type="submit" class="btn-registrar">
+                        ✅ Registrar ingreso
+                    </button>
+
                 </form>
-
-            </main>
+            </div>
         </div>
-
-
     </div>
+
+    <!-- Toast de confirmación -->
+    <div class="toast" id="toast">Ingreso registrado correctamente</div>
+
+    <script>
+        // Reloj en tiempo real
+        function updateClock() {
+            const now = new Date();
+            document.getElementById('timestamp').textContent =
+                now.toLocaleTimeString('es-CO', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+        }
+        updateClock();
+        setInterval(updateClock, 1000);
+
+        // Vista previa de la placa
+        const placaInput = document.getElementById('placa');
+        const placaBadge = document.getElementById('placa-badge');
+        const placaPreview = document.getElementById('placa-preview');
+
+        placaInput.addEventListener('input', () => {
+            const val = placaInput.value.toUpperCase();
+            placaInput.value = val;
+            if (val.length >= 3) {
+                placaBadge.textContent = val;
+                placaPreview.classList.add('show');
+            } else {
+                placaPreview.classList.remove('show');
+            }
+        });
+
+        // Envío del formulario
+        const form = document.getElementById('form-ingresos');
+        const toast = document.getElementById('toast');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const placa = placaInput.value.trim();
+            const tipo = document.getElementById('tipo').value;
+
+            if (!placa || !tipo) return;
+
+            // Aquí iría la llamada al backend
+            console.log('Ingreso registrado:', { placa, tipo, hora: new Date().toISOString() });
+
+            // Mostrar toast de confirmación
+            toast.textContent = `Ingreso registrado: ${placa} (${tipo})`;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 3000);
+
+            // Limpiar formulario
+            form.reset();
+            placaPreview.classList.remove('show');
+        });
+    </script>
+
 </body>
 
 </html>

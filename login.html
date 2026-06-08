@@ -1,28 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>parking</title>
+    <title>Parking — Iniciar sesión</title>
     <link rel="stylesheet" href="styles/login.css">
 </head>
 
 <body>
 
-    <section class="login">
-        <!--Aqui ingresamos el logo del parqueadero-->
-        <img src="img/estacionamiento.png" alt="Estacionamiento">
-        <h1>Parking</h1>
-        <!--Formulario de inicio de sesión-->
-        <form action="login.php" method="post">
-            <input type="text" name="usuario" placeholder="Usuario" required>
-            <input type="password" name="contraseña" placeholder="Contraseña" required>
-            <!--Botón de inicio de sesión-->
-            <a href="page.html" class="btn-login">Iniciar Sesión</a>
+    <div class="login-card">
+
+        <!-- LOGO -->
+        <div class="login-logo">
+            <div class="logo-icon">🅿</div>
+            <span class="logo-name">Parking</span>
+            <span class="logo-sub">Sistema de administración</span>
+        </div>
+
+        <hr class="divider">
+
+        <!-- MENSAJE DE ERROR -->
+        <div class="error-msg" id="error-msg">
+            Usuario o contraseña incorrectos.
+        </div>
+
+        <!-- FORMULARIO -->
+        <form id="form-login" action="login.php" method="post" novalidate>
+
+            <div class="field">
+                <label for="usuario">Usuario</label>
+                <input type="text" id="usuario" name="usuario" placeholder="Ej. admin" autocomplete="username" required>
+            </div>
+
+            <div class="field">
+                <label for="contrasena">Contraseña</label>
+                <input type="password" id="contrasena" name="contrasena" placeholder="••••••••"
+                    autocomplete="current-password" required>
+            </div>
+
+            <button type="submit" class="btn-login">Iniciar sesión</button>
 
         </form>
-    </section>
+
+        <p class="login-footer">Parking © <span id="anio"></span></p>
+    </div>
+
+    <script>
+        // Año actual en el footer
+        document.getElementById('anio').textContent = new Date().getFullYear();
+
+        // Validación del lado del cliente antes de enviar al backend
+        document.getElementById('form-login').addEventListener('submit', function (e) {
+            const usuario = document.getElementById('usuario').value.trim();
+            const contrasena = document.getElementById('contrasena').value.trim();
+            const errorMsg = document.getElementById('error-msg');
+
+            if (!usuario || !contrasena) {
+                e.preventDefault();
+                errorMsg.textContent = 'Por favor completa todos los campos.';
+                errorMsg.classList.add('show');
+                return;
+            }
+
+            errorMsg.classList.remove('show');
+
+            // Para pruebas sin backend: redirige directo al dashboard
+            // Elimina este bloque cuando conectes login.php
+            e.preventDefault();
+            window.location.href = 'page.html';
+        });
+    </script>
+
 </body>
 
 </html>
